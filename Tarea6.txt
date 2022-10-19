@@ -1,0 +1,50 @@
+ssh ubuntu@144.22.153.18
+
+1-
+	mkdir repositorio
+	cd repositorio
+	git clone https://github.com/TecnologoInformatico/AdmInf-web.git
+2-
+	sudo apt update
+
+3-
+	sudo apt install apache2
+
+4-
+	mkdir var
+	mkdir www
+	mkdir elangorta
+5-
+	sudo chown ubuntu
+
+6-
+	sudo cp 000-default.conf elangorta.conf
+	sudo nano elangorta.conf
+	ServerName www.elangorta.tecnologoinformatico.com
+        ServerAdmin emiliano.langorta@estudiantes.utec.edu.uy
+        DocumentRoot /var/www/elangorta
+
+7-
+	sudo nano /etc/hosts
+	127.0.0.1 www.elangorta.tecnologoinformatico.com
+
+8-
+	sudo systemctl reload apache2
+
+9-
+	sudo cp -r ./repositorio/AdmInf-web /var/www/elangorta
+
+10-
+
+
+-------------------------------------------	
+Activar servidor 
+sudo a2ensite elangorta.conf
+sudo systemctl reload apache2
+curl elangorta.tecnologoinformatico.com
+-------------------------------------------
+
+
+
+
+
